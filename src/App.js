@@ -1,8 +1,8 @@
 import "./App.css";
 
-import BaseLayout from "./baseLayout";
+import MenuNav from "./components/Menu";
 function App() {
-  return <BaseLayout />;
+  return <MenuNav />;
 }
 
 export default App;

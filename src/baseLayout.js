@@ -6,7 +6,7 @@ import { Input } from "@material-tailwind/react";
 import { CardSimple } from "./card";
 import BotUi from "./botUI";
 export default function BaseLayout() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [currentTopic, setCurrentTopic] = useState({});
 
   const [grade, setGrade] = useState("");
@@ -14,8 +14,8 @@ export default function BaseLayout() {
 
   return (
     <>
-      <div className="flex justify-start p-5 m-4">
-        <div className="flex w-72 flex-col gap-6">
+      <div className="flex justify-start p-2 m-2">
+        <div className="flex w-72 flex-row gap-6">
           <Input
             color="blue"
             label="Grade"
@@ -32,66 +32,74 @@ export default function BaseLayout() {
           />
         </div>
       </div>
-
-      <div className="flex justify-center m-5 p-10">
-        <CardSimple
-          title={"Unit Plan"}
-          bodyText={"detailed plan on the subject"}
-          btnClick={() => {
-            setOpen(true);
-            setCurrentTopic({
-              topic: "unit-plan",
-              grade: grade,
-              subject: subject,
-            });
-          }}
-        />
-        <CardSimple
-          title={"Quizzes"}
-          bodyText={" sample quiz questions"}
-          btnClick={() => {
-            setOpen(true);
-            setCurrentTopic({
-              topic: "quiz",
-              grade: grade,
-              subject: subject,
-            });
-          }}
-        />
-        <CardSimple
-          title={"Assess yourself"}
-          bodyText={" sample study plans"}
-          btnClick={() => {
-            setOpen(true);
-            setCurrentTopic({
-              topic: "assess-yourself",
-              grade: grade,
-              subject: subject,
-            });
-          }}
-        />
-        <CardSimple
-          title={"Doubts"}
-          bodyText={" sample study plans"}
-          btnClick={() => {
-            setOpen(true);
-            setCurrentTopic({
-              topic: "doubts",
-              grade: grade,
-              subject: subject,
-            });
-          }}
-        />
-        <CardSimple
-          title={"Feedback"}
-          bodyText={" sample study plans"}
-          btnClick={() => {
-            setOpen(true);
-            setCurrentTopic("feedback");
-          }}
-        />
+      <div className="">
+        <div className="flex flex-row flex-wrap justify-center ">
+          <CardSimple
+            title={"Unit Plan"}
+            bodyText={"detailed plan on the subject"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic({
+                topic: "unit-plan",
+                grade: grade,
+                subject: subject,
+              });
+            }}
+          />
+          <CardSimple
+            title={"Quizzes"}
+            bodyText={" sample quiz questions"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic({
+                topic: "quiz",
+                grade: grade,
+                subject: subject,
+              });
+            }}
+          />
+          <CardSimple
+            title={"Assess yourself"}
+            bodyText={" sample study plans"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic({
+                topic: "assess-yourself",
+                grade: grade,
+                subject: subject,
+              });
+            }}
+          />
+          <CardSimple
+            title={"Doubts"}
+            bodyText={" sample study plans"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic({
+                topic: "doubts",
+                grade: grade,
+                subject: subject,
+              });
+            }}
+          />
+          <CardSimple
+            title={"Feedback"}
+            bodyText={" sample study plans"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic("feedback");
+            }}
+          />
+          <CardSimple
+            title={"Saved"}
+            bodyText={"Saved plans"}
+            btnClick={() => {
+              setOpen(true);
+              setCurrentTopic("saved");
+            }}
+          />
+        </div>
       </div>
-
       <button
         className="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 bg-black hover:bg-gray-700 m-0 cursor-pointer border-gray-200 bg-none p-0 normal-case leading-5 hover:text-gray-900"
         type="button"
@@ -177,7 +185,6 @@ export default function BaseLayout() {
                       </div>
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
                         {/* Your content */}
-
                         <BotUi topicData={currentTopic} />
                       </div>
                     </div>
