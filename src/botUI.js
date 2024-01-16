@@ -27,7 +27,7 @@ function BotUi({ topicData }) {
       setUserInput(`I need help with unit plan for ${grade} for ${subject} `);
     }
     if (topic === "quiz") {
-      setUserInput(`I need help with quizzes for ${grade} for ${subject} `);
+      setUserInput(`I need quizes for ${grade} for ${subject} `);
     }
 
     setTimeout(() => {
